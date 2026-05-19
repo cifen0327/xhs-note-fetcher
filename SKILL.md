@@ -50,7 +50,14 @@ xhs-note-fetcher/
 ## 前置要求
 
 - Python 3.10+
-- TikHub API Token（存于 `~/.xiaohongshu/tikhub_config.json` 或环境变量 `TIKHUB_API_TOKEN`）
+- TikHub API Token：在 [tikhub.io](https://tikhub.io) 控制台注册后获取，写入本地配置文件：
+  ```bash
+  mkdir -p ~/.xiaohongshu
+  echo '{"tikhub_api_token": "your_token_here"}' > ~/.xiaohongshu/tikhub_config.json
+  ```
+  或设置环境变量：`export TIKHUB_API_TOKEN="your_token_here"`
+
+  > **安全说明**：配置文件存于 `~/.xiaohongshu/`，与 skill 目录（`~/.claude/skills/`）完全隔离，不会随 skill 文件被分享或泄露。
 - **不需要** Anthropic API Key — 分析由 Claude 在对话中直接完成
 - 依赖包：`pip install pytesseract pillow python-docx`
 - Tesseract 二进制：`brew install tesseract tesseract-lang`（需含 `chi_sim`）
